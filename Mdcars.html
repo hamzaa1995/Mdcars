@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoujahidJewels - Joaillerie d'Exception</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f8f8f8;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .business-card {
+  width: 350px;
+  max-height: 80vh;
+  background: url('https://i.postimg.cc/pdzrT99p/a0065fcfbfc3240092fc8bb28c715882.jpg') no-repeat center center; /* Remplace l’URL par ton image */
+  background-size: cover;
+  border-radius: 20px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+        
+        .cover-container {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .cover-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+       .cover-fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20%;
+    background: linear-gradient(to top, black 0%, rgba(0, 0, 0, 0.7) 60%, rgba(0, 0, 0, 0) 100%);
+}
+
+
+        
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+            position: absolute;
+            top: 130px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            z-index: 2;
+        }
+        
+        .content {
+            padding: 60px 25px 25px;
+            text-align: center;
+        }
+        
+        .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 15px 0 5px;
+            color: #222;
+            letter-spacing: 0.5px;
+        }
+        
+        .company {
+            font-size: 16px;
+            font-weight: 600;
+            color: #d4af37;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .description {
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 20px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .instagram-icon {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+        
+        .whatsapp-icon {
+            background: #25D366;
+        }
+        
+        .website-icon {
+            background: #d4af37;
+        }
+        
+        .social-icon img {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin: 20px 0;
+        }
+        
+        .gallery a {
+            width: 100%;
+            height: 80px;
+            border-radius: 6px;
+            overflow: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+        
+        .gallery a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+        
+        .gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            margin: 20px 0 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .map-address {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .gold-divider {
+            width: 50px;
+            height: 2px;
+            background: #d4af37;
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        .vertical-categories {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 25px 0;
+            padding: 0 15px;
+        }
+        
+        .v-category {
+            text-align: center;
+            padding: 15px 10px;
+            background: #ffffff;
+            border-radius: 6px;
+            transition: all 0.3s;
+            border: 1px solid #d4af37;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .v-category:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(212, 175, 55, 0.2);
+            border-color: #c0a030;
+        }
+        
+        .v-category h3 {
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+        
+        .footer {
+            font-size: 11px;
+            color: #999;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .jewel-icon {
+            color: #d4af37;
+            margin: 0 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="business-card">
+        <div class="cover-container">
+            <!-- Remplacez par votre photo de couverture -->
+            <img src="https://i.postimg.cc/fWx4LdQx/maraglory-cars-14040302-210149219.jpg/photo-1605100804763-247f67b3557e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Joaillerie" class="cover-photo">
+            <div class="cover-fade"></div>
+        </div>
+
+        <!-- Remplacez par votre photo de profil -->
+        <img src="https://i.postimg.cc/ZKBdpJjF/20250522-210608.jpg/100" alt="MoujahidJewels" class="profile-pic">
+
+        <div class="content">
+            <h1 class="name">MD Cars 
+            </h1>
+            <div class="company">LUXURY CAR RENTAL</div>
+            <div class="description">
+                Drive Beyond Ordinary – Premium & Luxury Car Rentals Where Excellence Meets the Road
+            </div>
+
+            <div class="gold-divider"></div>
+            
+            <div class="social-icons">
+                <a href="https://instagram.com/mdcars_travel" class="social-icon instagram-icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+                </a>
+                <a href="https://wa.me/212644361855" class="social-icon whatsapp-icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="WhatsApp">
+<a href="https://mdcars.netlify.app/" class="social-icon website-icon" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/1006/1006771.png" alt="Website">
+</a>
+
+            </div>
+            
+            <div class="gallery">
+                <!-- Remplacez les href et images par vos liens et photos -->
+                <a href="https://www.instagram.com/reel/Cty82xcMu21/?igsh=dm8wcmN0NG9ndW5s" target="_blank">
+                    <img src="https://i.postimg.cc/XqwkkNDJ/maraglory-cars-14040303-204622314.jpg">
+                </a>
+                <a href="https://www.instagram.com/reel/Cr9I2xrsCl8/?igsh=MzlqdWVnM2tuOHhp" target="_blank">
+                    <img src="https://i.postimg.cc/rFM1LkP1/exoticcarsdubai-14040303-204813983.jpg/photo-1605100804763-247f67b3557e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Collection Diamants">
+                </a>
+                <a href="https://www.instagram.com/reel/CpxhtWQP19o/?igsh=M2ozam11MDAzZGRr" target="_blank">
+                    <img src="https://i.postimg.cc/X7LwjzRT/exoticcarsdubai-14040303-204902006.jpg/photo-1602173574767-37ac01994b2a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Sur Mesure">
+                </a>
+            </div>
+
+            
+            
+            <div class="vertical-categories">
+                <div class="v-category">
+                    <h3>📱 +2126 44 36 18 55</h3>
+                </div>
+                <div class="v-category">
+                    <h3>📍 aeroport marrakech menara</h3>
+                </div>
+                <div class="v-category">
+                    <h3>thank you</h3>
+                </div>
+            </div>
+
+            <div class="footer">
+                <span class="jewel-icon">️🏎️💨</span> All rights reserved © MDCARS <span class="jewel-icon">🏎🏎️💨</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
